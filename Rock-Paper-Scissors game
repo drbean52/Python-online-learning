@@ -8,7 +8,7 @@ while True:
         user2=input('Player2: Rock, Paper or Scissor? ')
         
         if user1==user2:
-            if input('It is a tie! Do you want to start a new game? ')== 'Yes':
+            if input('It is a tie! Do you want to start a new game? [Yes/No]')== 'Yes':
                 continue
             else:
                 print('ByeBye')
@@ -23,7 +23,7 @@ while True:
         else:
             print("User2 is the winner")          
         
-        if input('Do you want to start a new game? ') == 'Yes':
+        if input('Do you want to start a new game? [Yes/No]') == 'Yes':
             continue
         else:
             print('ByeBye')
