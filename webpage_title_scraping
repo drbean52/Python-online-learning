@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+
+# get the URL
+url='http://www.espn.com/nba/' 
+r=requests.get(url)
+
+# feed to the BS function
+soup=BeautifulSoup(r.text,'lxml')
+
+# retrieve all html content with h1 tag
+# or
+# h2_tag=soup.find_all(class_="contentItem__title")
+# more precise to get the article titles
+
+h2_tag=soup.find_all("h1")
+for i in h2_tag:
+    print(i.text)
