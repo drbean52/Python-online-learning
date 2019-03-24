@@ -1,0 +1,9 @@
+def pass_gen(num_size=6,alpha_size=2,sym_size=1):
+    import random
+    num='0123456789'
+    alpha='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    sym='!@#$%^&*()?'
+    return ''.join(random.sample(alpha,alpha_size) + random.sample(num,num_size) + random.sample(sym,sym_size))
+
+random.seed(10) #to set a particular random value operation
+print(pass_gen(10,7,2))
