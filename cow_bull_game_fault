@@ -34,7 +34,7 @@ target=str(random.randint(1000,9999))
 guess=0
         
 while True:
-    x=[0,0]
+    x=[0,0] # reset the compare values before start
     player=str(input('Enter a number: '))
     if player=='exit':
         print(target)
