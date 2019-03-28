@@ -16,3 +16,15 @@ soup=BeautifulSoup(r.text,'lxml')
 h2_tag=soup.find_all("h1")
 for i in h2_tag:
     print(i.text)
+
+
+########
+to save allin a txt file
+name_save=input('filename to save: ')
+
+with open(name_save,'w') as open_file:
+    h2_tag=soup.find_all(class_="contentItem__title")
+    for i in h2_tag:
+        open_file.write(i.text + '\n') 
+#write the text each time and add a new line space'
+########
