@@ -1,0 +1,9 @@
+#creat an empty dictionary
+cat_dict={}
+
+#loop through each string in the variable
+for i in all_text:
+    if i in cat_dict:   #if this str in the dictionary, counter add 1
+        cat_dict[i]+=1
+    else:               #if this str not in the dictionary, counter=1....important that it start a new entry for a new variable
+        cat_dict[i]=1
