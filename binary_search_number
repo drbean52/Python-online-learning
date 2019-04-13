@@ -1,0 +1,52 @@
+This time, we’re going to do exactly the opposite. You, the user, will have in your head a number between 0 and 100. The program will guess a number, and you, the user, will say whether it is too high, too low, or your number.
+At the end of this exchange, your program should print out how many guesses it took to get your number.
+
+# Official solution: 
+
+import random
+mylist=range(0,101)
+midpoint=int(len(mylist)/2)
+guess=mylist[midpoint]
+count=1
+
+while True:
+    clue=input(str(guess)+ ', too high, too low or correct?' )
+    
+    if clue=='correct':
+        print('I get it right, it is ' +str(guess))
+        print('you have tried ' + str(count)+ ' times.')
+        break
+        
+    if clue=='high':
+        mylist=mylist[:midpoint]
+    else:
+        mylist=mylist[midpoint:]
+    midpoint=int(len(mylist)/2)    
+    guess=mylist[midpoint]
+    count+=1
+    
+    
+# My own, better soultion!   
+    
+import random
+
+guess=random.randint(0,101)
+count=1
+top = 101
+bottom=0
+
+while True:
+    print(guess)
+    clue=input('Too high,too low or correct?' )
+
+    if clue=='correct':
+        print('I get it right, it is ' +str(guess))
+        print('you have tried ' + str(count)+ ' times.')
+        break
+        
+    if clue=='high':
+        top=guess
+    else:
+        bottom=guess
+    guess=range(bottom,top+1)[int((top-bottom)/2)]
+    count+=1
