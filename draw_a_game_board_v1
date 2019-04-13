@@ -11,15 +11,32 @@ This one is 3x3 (like in tic tac toe). Obviously, they come in many other sizes 
 
 Ask the user what size game board they want to draw, and draw it for them to the screen using Python’s print statement.
 
+
+#if inside only 3 space wide (fixed size)
+
+def draw():
+    x=int(input('how big is the game board? '))
+    top=(' ---')*x
+    pillar=('|   ')*(x+1)
+    for i in range(x):
+        print(top)
+        print(pillar)
+    print(top)
+    
+draw()
+
+
+
+
 # inside side change also
 
 def draw():
     x=int(input('how big is the game board? '))
-    line=(' '+'-'*x)*x
+    top=(' '+'-'*x)*x
     pillar=('|'+' '*x)*x+('|')
     for i in range(x):
-        print(line)
+        print(top)
         print(pillar)
-    print(line)
+    print(top)
     
 draw()
