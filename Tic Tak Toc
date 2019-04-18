@@ -1,0 +1,36 @@
+game = [[0, 1, 2], 
+        [0, 1, 2],
+        [0, 1, 2]]
+
+def win_check(game):
+    
+#check vertical column winner, read each column first and put them in a list
+    check=[] 
+    for col in range(len(game)):
+        check=[] 
+        for row in game:
+            check.append(row[col])
+        if check.count(check[0])==len(check) and check[0]!=0:
+            print(f'Player {check[0]} wins')
+                
+#check horizontal winner, read each column first and put them in a list
+    for row in game:
+        if row.count(row[0])==len(row) and row[0]!=0:  ### count the number of 1st element if equal to len of the list
+            print(f'Player {row[0]} wins')
+
+#check diagonal line winner, read diagonal values and put them in a list
+
+    diag=[]
+    for i in range(len(game)):
+        diag.append(game[i][i])
+    if diag.count(diag[0])==len(diag) and diag[0]!=0:
+        print(f'Player {diag[0]} wins')
+    
+    r_index=list(reversed(range(len(game))))
+    diag=[]
+    for i,j in enumerate(r_index):
+        diag.append(game[i][j])
+    if diag.count(diag[0])==len(diag) and diag[0]!=0:
+        print(f'Player {diag[0]} wins')
+        
+win_check(game)
