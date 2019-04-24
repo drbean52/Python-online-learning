@@ -1,0 +1,32 @@
+def create_word():
+    import random
+    with open('C:/Users/Damon/2018 GD/Python Learning/script/sowpods.txt', 'r') as file:
+        all_line = file.read()
+        temp=all_line.split('\n')
+        list_size=len(temp)
+        index=random.randint(0,list_size+1)
+        return (temp[index])
+    
+create_word()
+
+
+target='EVAPORATE'
+target_list=[i for i in target]
+print('Welcome to Hangman!')
+num=len(target)
+screen='_'*num
+screen_list=[i for i in screen]
+
+while True:
+    if screen_list == target_list:
+        print('You are correct!')
+        break
+    guess=input('Guess your letter: ')
+    if guess not in target_list:
+        print('Incorrect!')
+    for i, alpha in enumerate(target_list):
+        if alpha==guess:
+            screen_list[i]=guess
+    print(screen_list)
+
+
