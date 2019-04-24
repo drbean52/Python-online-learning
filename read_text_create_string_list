@@ -1,0 +1,3 @@
+with open('XXXX', 'r') as file:
+        all_line = file.read()
+        temp=all_line.split('\n')
