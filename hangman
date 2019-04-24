@@ -27,6 +27,6 @@ while True:
     for i, alpha in enumerate(target_list):
         if alpha==guess:
             screen_list[i]=guess
-    print(screen_list)
+    print(' '.join(screen_list))
 
 
