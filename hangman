@@ -9,24 +9,40 @@ def create_word():
     
 create_word()
 
+###
+Only let the user guess 6 times, and tell the user how many guesses they have left.
+Keep track of the letters the user guessed. 
+If the user guesses a letter they already guessed, don’t penalize them - let them guess again.
+###
 
-target='EVAPORATE'
+target='TRICKY'
 target_list=[i for i in target]
 print('Welcome to Hangman!')
 num=len(target)
 screen='_'*num
 screen_list=[i for i in screen]
+chance_left=6
+guessed=[]
 
 while True:
+    if chance_left==0:
+        print('You used up all 6 guesses!')
+        break
+    
     if screen_list == target_list:
         print('You are correct!')
         break
+   
     guess=input('Guess your letter: ')
-    if guess not in target_list:
+    if guess.upper() not in target_list:
         print('Incorrect!')
-    for i, alpha in enumerate(target_list):
-        if alpha==guess:
-            screen_list[i]=guess
+        
+    if guess.upper() not in guessed:
+        for i, alpha in enumerate(target_list):
+            if alpha==guess.upper():
+                screen_list[i]=guess.upper()
+        chance_left-=1
+    guessed.append(guess.upper())
+         
     print(' '.join(screen_list))
-
-
+    print('you have {} guesses left'.format(chance_left))
