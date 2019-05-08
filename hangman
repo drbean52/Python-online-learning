@@ -22,27 +22,30 @@ num=len(target)
 screen='_'*num
 screen_list=[i for i in screen]
 chance_left=6
-guessed=[]
+guessed=set()
+guess=[]
 
-while True:
+while guess!='exit':
     if chance_left==0:
         print('You used up all 6 guesses!')
         break
-    
+            
     if screen_list == target_list:
         print('You are correct!')
         break
    
-    guess=input('Guess your letter: ')
+    guess=input('Guess your letter, or type [exit] to quit' )
     if guess.upper() not in target_list:
         print('Incorrect!')
         
     if guess.upper() not in guessed:
         for i, alpha in enumerate(target_list):
-            if alpha==guess.upper():
-                screen_list[i]=guess.upper()
+              if alpha==guess.upper():
+                      screen_list[i]=guess.upper()
         chance_left-=1
-    guessed.append(guess.upper())
+    guessed.add(guess.upper())
          
     print(' '.join(screen_list))
     print('you have {} guesses left'.format(chance_left))
+    
+print('Thanks for playing!')    
