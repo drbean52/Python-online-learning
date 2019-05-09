@@ -7,7 +7,7 @@ def create_word():
         index=random.randint(0,list_size+1)
         return (temp[index])
     
-create_word()
+
 
 ###
 Only let the user guess 6 times, and tell the user how many guesses they have left.
@@ -37,15 +37,16 @@ while guess!='exit':
     guess=input('Guess your letter, or type [exit] to quit' )
     if guess.upper() not in target_list:
         print('Incorrect!')
+        if guess.upper() not in guessed:
+            chance_left-=1
         
     if guess.upper() not in guessed:
         for i, alpha in enumerate(target_list):
               if alpha==guess.upper():
                       screen_list[i]=guess.upper()
-        chance_left-=1
     guessed.add(guess.upper())
          
     print(' '.join(screen_list))
     print('you have {} guesses left'.format(chance_left))
     
-print('Thanks for playing!')    
+print('Thanks for playing!')
